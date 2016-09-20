@@ -1,0 +1,37 @@
+ 
+    EXAMPLES OF @FindBy NOTATION:
+
+@FindBy: locates a single WebElement, or a group of WebElements, using a single criteria. This example finds the main page logo, using the name of the css class, and assigns it to a WebElement object variable:
+
+    @FindBy( className = "HeaderMain-logo-Img")
+    WebElement homePageLinkLogo;
+
+@FindAll: Encloses multiple “FindBy” statements. Uses OR logic, to find every element that meets the criteria in ANY of the nested "FindBy" statements. Useful for locating WebElements that have different attributes, but need to be grouped for some reason. This example finds all of the main menu or submenu links, using the names of the css classes, and puts them in a List:
+
+    @FindAll({
+	    @FindBy(className = "SuperfishMegaMenu-topLink"),
+	    @FindBy(className = "SuperfishMegaMenu-subLink")
+	})
+    List<WebElement> allMenuItems;
+
+@FindBys: Encloses multiple “FindBy” statements. Uses AND logic, to find every element that meets the criteria in EACH of the "FindBy" statements. This example finds the google translate link, using both the className and the id.
+
+    @FindBys({
+          @FindBy(className = "TranslateElement"),
+            @FindBy(id="google_translate_element-in-header-aux")
+            })
+    WebElement googleTranslateLink;
+
+How enumerator: This is simply another method for locating WebElement objects in the “FindBy” structure. The syntax uses the Enumerator within a FindBy statement is as follows:
+
+@FindBy(how = How.[Enumerator option], using = "[String to find]”)
+WebElement whatever;
+
+For example, searching by classname without “How” enumerator
+    @FindBy( className = "HeaderMain-logo-Img")
+    WebElement homePageLinkLogo;
+	
+With How enumerator
+    @FindBy( how = How.CLASSNAME, using = "HeaderMain-logo-Img")
+    WebElement homePageLinkLogo;
+

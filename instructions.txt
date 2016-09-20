@@ -1,0 +1,29 @@
+Automation challenge 5 (Use search and get info)
+
+Part 1: Automation
+
+Write a class that automates the following tasks:
+
+-Go to https://www.skiutah.com/members/listing 
+
+-Perform a search, using the "What," "By Resort," and "Sub Category" selector controls.
+
+-Return the list of the search results by looking at ListingResults-item.
+
+You are encouraged to use your imagination, and there is no "wrong" way to complete the challenge. However, your code does need to contain the following:
+
+-A publicly accessible class called "pageObjects.SearchPage" which can be instantiated with a single argument constructor. The constructor needs to accept a WebDriver object as a parameter. The class should use the webdriver to access various controls in the browser.
+
+-A publicly accessible method called "SearchFor" which accepts three Strings as parameters, enters the strings into the "What," "SubCategory" and "By Resort" controls, and clicks on the "OK" button. The method should return a list of WebElement objects, representing the search results. (Hint: The search results can be found by searching for "ListingResults� in the html.)
+
+You can use any other methods, classes, or other libraries you wish. We STRONGLY recommend the Selenium Page Object Model pattern, with PageFactory. If you do, perform the following tasks:
+
+-Make certain that the org.openqa.selenium.support. and org.openqa.selenium.support libraries are accessible to your code. (If you're using maven for this project, the dependencies for these libraries are already set up in the pom.xml)
+
+-Use the PageFactory's annotation to identify the four WebElements that are listed in the class: whatSelect, subCategorySelect, byResortSelect, and oKSubmitButton. The first FindBy is already done. You're welcome.
+
+-(REALLY IMPORTANT) The constuctor for the pageObjects.SearchPage class will need to include the PageFactory.initElements(WebDriver, pageObjects.SearchPage) method.
+
+Run the VerificationTests class to test your code. If all of the tests do not pass, your code needs to be re-worked.
+
+When you commit your project to the repository, PLEASE include a comment with any important information about your project, such as "Project is built using Maven/Gradle/Ant/whatever," "Requires external Library com.vlasic.pickle.jar" or anything else that is important to compiling or running the project.
